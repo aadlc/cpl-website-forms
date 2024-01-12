@@ -7,7 +7,8 @@ export const metadata = {
   title: 'Calgary Public Library',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout(props) {
+  const {children} = props
   return (
     <html lang="en">
       <body>
