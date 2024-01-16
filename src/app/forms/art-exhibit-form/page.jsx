@@ -86,7 +86,6 @@ const ArtExhibitForm = () => {
         error={!!errors.Statement}
         helperText={errors?.Statement?.message}
       />
-      <div>{watch('Library_Branch')}</div>
       <MuiAutocomplete
         required
         fullWidth

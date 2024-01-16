@@ -5,7 +5,7 @@ import {
   TextField
 } from '@mui/material'
 
-const MuiAutocomplete = ({ name, control, ...rest }) => {
+const MuiAutocomplete = ({ disableBranch, control, name, ...rest }) => {
   const options = [
     { id: '1', label: 'Option 1' },
     { id: '2', label: 'Option 2' }
@@ -35,6 +35,7 @@ const MuiAutocomplete = ({ name, control, ...rest }) => {
                   inputRef={ref}
                   {...rest}
                   {...params}
+                  margin='normal'
                 />
               )}
             />
