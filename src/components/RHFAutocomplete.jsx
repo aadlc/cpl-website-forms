@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form'
 import { Autocomplete, TextField } from '@mui/material'
 
 /**
- * MuiAutocomplete is a custom wrapper component around Material-UI's Autocomplete component.
+ * RHFAutocomplete is a custom wrapper component around Material-UI's Autocomplete component.
  * This component is designed to be integrated with React Hook Form for form state management.
  * 
  * Props:
@@ -18,7 +18,7 @@ import { Autocomplete, TextField } from '@mui/material'
  * The component uses the Controller component from React Hook Form to integrate the Autocomplete component into the form.
  * The value of the Autocomplete is controlled based on the form's state.
  */
-const MuiAutocomplete = ({ 
+const RHFAutocomplete = ({ 
   control,
   getOptionDisabled = () => false,
   name,
@@ -62,4 +62,4 @@ const MuiAutocomplete = ({
   );
 };
 
-export default MuiAutocomplete
+export default RHFAutocomplete
