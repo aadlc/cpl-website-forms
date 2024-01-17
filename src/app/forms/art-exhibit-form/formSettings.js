@@ -32,147 +32,147 @@ const locations = [
       id: 16,
       ProgramBranchid: 16,
       Code: 'BOW',
-      label: 'Bowness Library',
+      Name: 'Bowness Library',
       Sector: 'Northwest'
     },
     {
       id: 1,
       ProgramBranchid: 1,
       Code: 'CENT',
-      label: 'Central Library',
+      Name: 'Central Library',
       Sector: 'Centre'
     },
     {
       id: 15,
       ProgramBranchid: 15,
       Code: 'CHILL',
-      label: 'Country Hills Library',
+      Name: 'Country Hills Library',
       Sector: 'North'
     },
     {
       id: 14,
       ProgramBranchid: 14,
       Code: 'CROW',
-      label: 'Crowfoot Library',
+      Name: 'Crowfoot Library',
       Sector: 'Northwest'
     },
     {
       id: 13,
       ProgramBranchid: 13,
       Code: 'FISH',
-      label: 'Fish Creek Library',
+      Name: 'Fish Creek Library',
       Sector: 'South'
     },
     {
       id: 12,
       ProgramBranchid: 12,
       Code: 'FLAWN',
-      label: 'Forest Lawn Library',
+      Name: 'Forest Lawn Library',
       Sector: 'East'
     },
     {
       id: 17,
       ProgramBranchid: 17,
       Code: 'GIUFFRE',
-      label: 'Giuffre Family Library',
+      Name: 'Giuffre Family Library',
       Sector: 'Centre'
     },
     {
       id: 3,
       ProgramBranchid: 3,
       Code: 'UMBACH',
-      label: 'Judith Umbach Library',
+      Name: 'Judith Umbach Library',
       Sector: 'North'
     },
     {
       id: 10,
       ProgramBranchid: 10,
       Code: 'RILEY',
-      label: 'Louise Riley Library',
+      Name: 'Louise Riley Library',
       Sector: 'Centre'
     },
     {
       id: 9,
       ProgramBranchid: 9,
       Code: 'MPARK',
-      label: 'Memorial Park Library',
+      Name: 'Memorial Park Library',
       Sector: 'Centre'
     },
     {
       id: 27,
       ProgramBranchid: 27,
       Code: 'NICHOLLS',
-      label: 'Nicholls Family Library',
+      Name: 'Nicholls Family Library',
       Sector: 'West'
     },
     {
       id: 8,
       ProgramBranchid: 8,
       Code: 'NOSE',
-      label: 'Nose Hill Library',
+      Name: 'Nose Hill Library',
       Sector: 'Northwest'
     },
     {
       id: 11,
       ProgramBranchid: 11,
       Code: 'QUARRY',
-      label: 'Quarry Park Library',
+      Name: 'Quarry Park Library',
       Sector: 'Southeast'
     },
     {
       id: 30,
       ProgramBranchid: 30,
       Code: 'ROCKY',
-      label: 'Rocky Ridge Library',
+      Name: 'Rocky Ridge Library',
       Sector: 'Northwest'
     },
     {
       id: 20,
       ProgramBranchid: 20,
       Code: 'SADDLE',
-      label: 'Saddletowne Library',
+      Name: 'Saddletowne Library',
       Sector: 'Northeast'
     },
     {
       id: 29,
       ProgramBranchid: 29,
       Code: 'SAGE',
-      label: 'Sage Hill Library',
+      Name: 'Sage Hill Library',
       Sector: 'North'
     },
     {
       id: 31,
       ProgramBranchid: 31,
       Code: 'SETON',
-      label: 'Seton Library',
+      Name: 'Seton Library',
       Sector: 'Southeast'
     },
     {
       id: 6,
       ProgramBranchid: 6,
       Code: 'SHAW',
-      label: 'Shawnessy Library',
+      Name: 'Shawnessy Library',
       Sector: 'South'
     },
     {
       id: 5,
       ProgramBranchid: 5,
       Code: 'SIG',
-      label: 'Signal Hill Library',
+      Name: 'Signal Hill Library',
       Sector: 'West'
     },
     {
       id: 4,
       ProgramBranchid: 4,
       Code: 'SOUTH',
-      label: 'Southwood Library',
+      Name: 'Southwood Library',
       Sector: 'South'
     },
     {
       id: 2,
       ProgramBranchid: 2,
       Code: 'VILSQ',
-      label: 'Village Square Library',
+      Name: 'Village Square Library',
       Sector: 'Northeast'
     }
   ]
@@ -180,8 +180,8 @@ const locations = [
 
 // Array of applicant types
 const applicantTypes = [
-  { code: 'Solo Artist', name: 'Solo Artist' },
-  { code: 'Artist Group', name: 'Artist Group' }
+  { label: 'Solo Artist', value: 'Solo Artist' },
+  { label: 'Artist Group', value: 'Artist Group' }
 ]
 
 // FRONT-END VALIDATION ---------------------------------

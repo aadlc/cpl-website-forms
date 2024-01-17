@@ -2,9 +2,8 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import MuiRadioButtonGroup from '@components/MuiRadioButtonGroup'
-import MuiAutocomplete from '@components/MuiAutocomplete'
-import MuiTextField from '@components/MuiTextField'
+import RHFRadioGroup from '@components/RHFRadioGroup'
+import RHFTextField from '@components/RHFTextField'
 import {
   applicantTypes,
   defaultValues,
@@ -13,6 +12,7 @@ import {
   schema,
 } from './formSettings'
 import { Button } from '@mui/material'
+import RHFAutocomplete from '@components/RHFAutocomplete'
 
 const ArtExhibitForm = () => {
   const {
@@ -29,7 +29,7 @@ const ArtExhibitForm = () => {
   const submit = (data)=> console.log(data)
   return (
     <form noValidate autoComplete='off' onSubmit={handleSubmit(submit)}>
-      <MuiTextField
+      <RHFTextField
         required
         fullWidth
         name='Artist_Name'
@@ -38,7 +38,7 @@ const ArtExhibitForm = () => {
         error={!!errors.Artist_Name}
         helperText={errors?.Artist_Name?.message}
       />
-      <MuiTextField
+      <RHFTextField
         required
         fullWidth
         name='Artist_Address'
@@ -47,7 +47,7 @@ const ArtExhibitForm = () => {
         error={!!errors.Artist_Address}
         helperText={errors?.Artist_Address?.message}
       />
-      <MuiTextField
+      <RHFTextField
         required
         fullWidth
         name='Phone'
@@ -56,7 +56,7 @@ const ArtExhibitForm = () => {
         error={!!errors.Phone}
         helperText={errors?.Phone?.message}
       />
-      <MuiTextField
+      <RHFTextField
         required
         fullWidth
         name='Email'
@@ -65,7 +65,7 @@ const ArtExhibitForm = () => {
         error={!!errors.Email}
         helperText={errors?.Email?.message}
       />
-      <MuiRadioButtonGroup
+      <RHFRadioGroup
         required
         fullWidth
         name='Applicants'
@@ -75,7 +75,7 @@ const ArtExhibitForm = () => {
         error={!!errors.Applicants}
         helperText={errors?.Applicants?.message}
       />
-      <MuiTextField
+      <RHFTextField
         multiline
         rows={6}
         required
@@ -86,7 +86,7 @@ const ArtExhibitForm = () => {
         error={!!errors.Statement}
         helperText={errors?.Statement?.message}
       />
-      <MuiAutocomplete
+      <RHFAutocomplete
         required
         fullWidth
         name='Library_Branch'
@@ -95,13 +95,13 @@ const ArtExhibitForm = () => {
           option.Code === disabeledLocations.find(location => location === option.Code))}
         control={control}
         options={locations}
-        // optionLabelKey='Name'
+        optionLabelKey='Name'
         optionValueKey='Code'
         error={!!errors.Library_Branch}
         helperText={errors?.Library_Branch?.message}
       />
         <p>UP LOAD FILE</p>
-      <MuiTextField
+      <RHFTextField
         fullWidth
         name='Additional_Links'
         label='Link to Artist social media channels'
