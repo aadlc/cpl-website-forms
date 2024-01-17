@@ -8,6 +8,7 @@ import MuiTextField from '@components/MuiTextField'
 import {
   applicantTypes,
   defaultValues,
+  disabeledLocations,
   locations,
   schema,
 } from './formSettings'
@@ -18,7 +19,6 @@ const ArtExhibitForm = () => {
     control,
     formState: { errors },
     handleSubmit,
-    watch,
   } = useForm({
     mode: 'all',
     defaultValues: defaultValues,
@@ -29,23 +29,23 @@ const ArtExhibitForm = () => {
   const submit = (data)=> console.log(data)
   return (
     <form noValidate autoComplete='off' onSubmit={handleSubmit(submit)}>
-    <MuiTextField
-      required
-      fullWidth
-      name='Artist_Name'
-      label="Artist's full name"
-      control={control}
-      error={!!errors.Artist_Name}
-      helperText={errors?.Artist_Name?.message}
-    />
-    <MuiTextField
-      required
-      fullWidth
-      name='Artist_Address'
-      label="Artist's address"
-      control={control}
-      error={!!errors.Artist_Address}
-      helperText={errors?.Artist_Address?.message}
+      <MuiTextField
+        required
+        fullWidth
+        name='Artist_Name'
+        label="Artist's full name"
+        control={control}
+        error={!!errors.Artist_Name}
+        helperText={errors?.Artist_Name?.message}
+      />
+      <MuiTextField
+        required
+        fullWidth
+        name='Artist_Address'
+        label="Artist's address"
+        control={control}
+        error={!!errors.Artist_Address}
+        helperText={errors?.Artist_Address?.message}
       />
       <MuiTextField
         required
@@ -91,27 +91,30 @@ const ArtExhibitForm = () => {
         fullWidth
         name='Library_Branch'
         label='At which Library location would you like to exhibit your work?'
-        // disableBranch={['GIUFFRE', 'MPARK', 'NICHOLLS', 'NOSE', 'QUARRY', 'ROCKY', 'SAGE', 'VILSQ', 'FISH', 'FLAWN', 'SADDLE', 'CENT']}
+        getOptionDisabled={(option)=>(
+          option.Code === disabeledLocations.find(location => location === option.Code))}
         control={control}
         options={locations}
+        // optionLabelKey='Name'
+        optionValueKey='Code'
         error={!!errors.Library_Branch}
         helperText={errors?.Library_Branch?.message}
       />
-      <p>UP LOAD FILE</p>
+        <p>UP LOAD FILE</p>
       <MuiTextField
-          fullWidth
-          name='Additional_Links'
-          label='Link to Artist social media channels'
-          control={control}
-          error={!!errors.Additional_Links}
-          helperText={errors?.Additional_Links?.message}
+        fullWidth
+        name='Additional_Links'
+        label='Link to Artist social media channels'
+        control={control}
+        error={!!errors.Additional_Links}
+        helperText={errors?.Additional_Links?.message}
       />
       <Button
-          color='secondary'
-          label='Submit'
-          size='large'
-          type='submit'
-          variant='contained'
+        color='secondary'
+        label='Submit'
+        size='large'
+        type='submit'
+        variant='contained'
       >
         Hello
       </Button>

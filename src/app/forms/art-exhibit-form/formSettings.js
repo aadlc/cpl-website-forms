@@ -3,167 +3,180 @@ import * as yup from 'yup'
 
 // Default form values for an artist's application
 const defaultValues = {
-  Artist_Name:'',
-  Artist_Address:'',
-  Phone:'',
-  Email:'',
-  Applicants:'',
-  Statement:'',
-  Library_Branch:'',
   Additional_Links:'',
+  Applicants:'',
+  Artist_Address:'',
+  Artist_Name:'',
+  Email:'',
+  Library_Branch:null,
+  Phone:'',
+  Statement:'',
 }
-
-const locations = {
-  ListOfItems: [
+// Array of branch codes
+const disabeledLocations = [
+  'CENT',
+  'FISH',
+  'FLAWN',
+  'GIUFFRE', 
+  'MPARK', 
+  'NICHOLLS', 
+  'NOSE', 
+  'QUARRY', 
+  'ROCKY', 
+  'SADDLE',
+  'SAGE', 
+  'VILSQ', 
+]
+const locations = [
     {
-      Id: 16,
-      ProgramBranchId: 16,
+      id: 16,
+      ProgramBranchid: 16,
       Code: 'BOW',
-      Name: 'Bowness Library',
+      label: 'Bowness Library',
       Sector: 'Northwest'
     },
     {
-      Id: 1,
-      ProgramBranchId: 1,
+      id: 1,
+      ProgramBranchid: 1,
       Code: 'CENT',
-      Name: 'Central Library',
+      label: 'Central Library',
       Sector: 'Centre'
     },
     {
-      Id: 15,
-      ProgramBranchId: 15,
+      id: 15,
+      ProgramBranchid: 15,
       Code: 'CHILL',
-      Name: 'Country Hills Library',
+      label: 'Country Hills Library',
       Sector: 'North'
     },
     {
-      Id: 14,
-      ProgramBranchId: 14,
+      id: 14,
+      ProgramBranchid: 14,
       Code: 'CROW',
-      Name: 'Crowfoot Library',
+      label: 'Crowfoot Library',
       Sector: 'Northwest'
     },
     {
-      Id: 13,
-      ProgramBranchId: 13,
+      id: 13,
+      ProgramBranchid: 13,
       Code: 'FISH',
-      Name: 'Fish Creek Library',
+      label: 'Fish Creek Library',
       Sector: 'South'
     },
     {
-      Id: 12,
-      ProgramBranchId: 12,
+      id: 12,
+      ProgramBranchid: 12,
       Code: 'FLAWN',
-      Name: 'Forest Lawn Library',
+      label: 'Forest Lawn Library',
       Sector: 'East'
     },
     {
-      Id: 17,
-      ProgramBranchId: 17,
+      id: 17,
+      ProgramBranchid: 17,
       Code: 'GIUFFRE',
-      Name: 'Giuffre Family Library',
+      label: 'Giuffre Family Library',
       Sector: 'Centre'
     },
     {
-      Id: 3,
-      ProgramBranchId: 3,
+      id: 3,
+      ProgramBranchid: 3,
       Code: 'UMBACH',
-      Name: 'Judith Umbach Library',
+      label: 'Judith Umbach Library',
       Sector: 'North'
     },
     {
-      Id: 10,
-      ProgramBranchId: 10,
+      id: 10,
+      ProgramBranchid: 10,
       Code: 'RILEY',
-      Name: 'Louise Riley Library',
+      label: 'Louise Riley Library',
       Sector: 'Centre'
     },
     {
-      Id: 9,
-      ProgramBranchId: 9,
+      id: 9,
+      ProgramBranchid: 9,
       Code: 'MPARK',
-      Name: 'Memorial Park Library',
+      label: 'Memorial Park Library',
       Sector: 'Centre'
     },
     {
-      Id: 27,
-      ProgramBranchId: 27,
+      id: 27,
+      ProgramBranchid: 27,
       Code: 'NICHOLLS',
-      Name: 'Nicholls Family Library',
+      label: 'Nicholls Family Library',
       Sector: 'West'
     },
     {
-      Id: 8,
-      ProgramBranchId: 8,
+      id: 8,
+      ProgramBranchid: 8,
       Code: 'NOSE',
-      Name: 'Nose Hill Library',
+      label: 'Nose Hill Library',
       Sector: 'Northwest'
     },
     {
-      Id: 11,
-      ProgramBranchId: 11,
+      id: 11,
+      ProgramBranchid: 11,
       Code: 'QUARRY',
-      Name: 'Quarry Park Library',
+      label: 'Quarry Park Library',
       Sector: 'Southeast'
     },
     {
-      Id: 30,
-      ProgramBranchId: 30,
+      id: 30,
+      ProgramBranchid: 30,
       Code: 'ROCKY',
-      Name: 'Rocky Ridge Library',
+      label: 'Rocky Ridge Library',
       Sector: 'Northwest'
     },
     {
-      Id: 20,
-      ProgramBranchId: 20,
+      id: 20,
+      ProgramBranchid: 20,
       Code: 'SADDLE',
-      Name: 'Saddletowne Library',
+      label: 'Saddletowne Library',
       Sector: 'Northeast'
     },
     {
-      Id: 29,
-      ProgramBranchId: 29,
+      id: 29,
+      ProgramBranchid: 29,
       Code: 'SAGE',
-      Name: 'Sage Hill Library',
+      label: 'Sage Hill Library',
       Sector: 'North'
     },
     {
-      Id: 31,
-      ProgramBranchId: 31,
+      id: 31,
+      ProgramBranchid: 31,
       Code: 'SETON',
-      Name: 'Seton Library',
+      label: 'Seton Library',
       Sector: 'Southeast'
     },
     {
-      Id: 6,
-      ProgramBranchId: 6,
+      id: 6,
+      ProgramBranchid: 6,
       Code: 'SHAW',
-      Name: 'Shawnessy Library',
+      label: 'Shawnessy Library',
       Sector: 'South'
     },
     {
-      Id: 5,
-      ProgramBranchId: 5,
+      id: 5,
+      ProgramBranchid: 5,
       Code: 'SIG',
-      Name: 'Signal Hill Library',
+      label: 'Signal Hill Library',
       Sector: 'West'
     },
     {
-      Id: 4,
-      ProgramBranchId: 4,
+      id: 4,
+      ProgramBranchid: 4,
       Code: 'SOUTH',
-      Name: 'Southwood Library',
+      label: 'Southwood Library',
       Sector: 'South'
     },
     {
-      Id: 2,
-      ProgramBranchId: 2,
+      id: 2,
+      ProgramBranchid: 2,
       Code: 'VILSQ',
-      Name: 'Village Square Library',
+      label: 'Village Square Library',
       Sector: 'Northeast'
     }
   ]
-}
+
 
 // Array of applicant types
 const applicantTypes = [
@@ -246,6 +259,7 @@ const schema = yup.object().shape({
 export {
   applicantTypes,
   defaultValues,
+  disabeledLocations,
   locations,
   schema,
 }
