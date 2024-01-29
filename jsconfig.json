@@ -5,6 +5,7 @@
       "@components/*": ["src/components/*"],
       "@dictionary/*": ["src/dictionary/*"],
       "@utils/*": ["src/utils/*"],
+      "@forms/*": ["src/app/forms/*"],
     }
   }
 }
