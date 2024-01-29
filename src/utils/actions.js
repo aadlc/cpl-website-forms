@@ -39,8 +39,6 @@ export async function makeApiRequest(requestOptions) {
   }
 }
 
-
-
 export async function reaquestArtExhibit(payload) {
   const method = ''
   const headers = ''
