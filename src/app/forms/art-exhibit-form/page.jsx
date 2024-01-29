@@ -1,4 +1,4 @@
-import ArtExhibitForm from '@components/artExhibitForm'
+import ArtExhibitForm from '@components/ArtExhibitForm'
 import { getToken, getListOfBranches } from '@utils/actions'
 
 export default async function  ArtExhibitPage() {
