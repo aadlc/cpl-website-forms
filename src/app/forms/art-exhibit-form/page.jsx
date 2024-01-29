@@ -8,5 +8,9 @@ export default async function  ArtExhibitPage() {
     locations = await getListOfBranches(token)
   }
 
-  return (<ArtExhibitForm locations={locations} />)
+  return (
+    <>
+      <ArtExhibitForm locations={locations} />
+    </>
+  )
 }
