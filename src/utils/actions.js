@@ -66,7 +66,7 @@ export async function getToken() {
   }
 
   const requestOptions = {
-    url: `${ process.env.CPL_API_DEV }/api/Authentication`,
+    url: 'https://cplwebapitest.azurewebsites.net/api/Authentication',
     method: 'POST',
     payload: payload
   }
