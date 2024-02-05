@@ -32,7 +32,11 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-
+        env:
+          ART_EXHIBIT_LOGICAPP_URL: ${{ secrets.ART_EXHIBIT_LOGICAPP_URL }}
+          CPL_API_DEV_USERNAME: ${{ secrets.CPL_API_DEV_USERNAME }}
+          CPL_API_DEV_PASSWORD: ${{ secrets.CPL_API_DEV_PASSWORD }}
+          CPL_API_DEV: ${{ secrets.CPL_API_DEV }}    
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
