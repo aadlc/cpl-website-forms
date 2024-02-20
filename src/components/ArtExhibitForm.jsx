@@ -106,7 +106,7 @@ export default function ArtExhibitForm({ locations }) {
         error={!!errors.Library_Branch}
         helperText={errors?.Library_Branch?.message}
       />
-      <RHFUploadField
+      {/* <RHFUploadField
         required
         fullWidth
         name='attachements'
@@ -115,7 +115,7 @@ export default function ArtExhibitForm({ locations }) {
         error={!!errors.attachements}
         helperText={errors?.attachements?.message}
         accept={ACCEPT_FILE_LIST}
-      />
+      /> */}
       <RHFTextField
         fullWidth
         name='Additional_Links'

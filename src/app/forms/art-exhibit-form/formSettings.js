@@ -70,39 +70,39 @@ const schema = yup.object().shape({
   Library_Branch: yup
     .string()
     .required('Please select a location. The field cannot be left blank.'),
-  attachements: yup
-    .mixed()
-    .required('Please attach files.')
-    .test('totalFiles', 'You must attach three samples files', (value) => {
-      return value && Object.keys(value).length === 3
-    })
-    .test('fileType', 'The attached files must be one of the following extensions: .docx .jpeg, .jpg, .pdf or .png', (value) => {
-      let ret = true
-      if (value) {
-        const allowed = ['vnd.openxmlformats-officedocument.wordprocessingml.document', 'jpeg', 'jpg', 'pdf', 'png']
-        const keys = Object.keys(value)
-        keys.forEach((key) => {
-          const fileTypeStr = value[key].type
-          const fileExt = fileTypeStr.split('/')[1].toLowerCase()
-          if (fileExt !== allowed.find(item => item === fileExt)) {
-            ret = false
-          }
-        })
-      }
-      return ret
-    })
-    .test('fileSize', 'One of the files exceeds the size limit of 10 megabyte', (value) => {
-      let ret = true
-      if (value) {
-        const keys = Object.keys(value)
-        keys.forEach((key) => {
-          if (value[key].size > maxMB) {
-            ret = false
-          }
-        })
-      }
-      return ret
-    }),
+  // attachements: yup
+  //   .mixed()
+  //   .required('Please attach files.')
+  //   .test('totalFiles', 'You must attach three samples files', (value) => {
+  //     return value && Object.keys(value).length === 3
+  //   })
+  //   .test('fileType', 'The attached files must be one of the following extensions: .docx .jpeg, .jpg, .pdf or .png', (value) => {
+  //     let ret = true
+  //     if (value) {
+  //       const allowed = ['vnd.openxmlformats-officedocument.wordprocessingml.document', 'jpeg', 'jpg', 'pdf', 'png']
+  //       const keys = Object.keys(value)
+  //       keys.forEach((key) => {
+  //         const fileTypeStr = value[key].type
+  //         const fileExt = fileTypeStr.split('/')[1].toLowerCase()
+  //         if (fileExt !== allowed.find(item => item === fileExt)) {
+  //           ret = false
+  //         }
+  //       })
+  //     }
+  //     return ret
+  //   })
+  //   .test('fileSize', 'One of the files exceeds the size limit of 10 megabyte', (value) => {
+  //     let ret = true
+  //     if (value) {
+  //       const keys = Object.keys(value)
+  //       keys.forEach((key) => {
+  //         if (value[key].size > maxMB) {
+  //           ret = false
+  //         }
+  //       })
+  //     }
+  //     return ret
+  //   }),
   Additional_Links: yup
     .string()
     .url()
