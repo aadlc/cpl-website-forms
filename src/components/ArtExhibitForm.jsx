@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import RHFRadioGroup from '@components/RHFRadioGroup'
 import RHFTextField from '@components/RHFTextField'
 import RHFUploadField from '@components/RHFUploadField'
-import {reaquestArtExhibit} from '@utils/actions'
+import {requestArtExhibit} from '@utils/actions'
 import {
   ACCEPT_FILE_LIST,
   applicantTypes,
@@ -33,7 +33,7 @@ export default function ArtExhibitForm({ locations }) {
   
   const submit = async (data) => {
     reset()
-    const result = await reaquestArtExhibit(data)
+    const result = await requestArtExhibit(data)
   }
   const attachements = watch('attachements')
   console.log(attachements)
