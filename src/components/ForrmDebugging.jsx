@@ -43,14 +43,14 @@ function Form() {
         <br />
         <p>Artis group</p>
         <label htmlFor='Solo artist'>Solo artist</label>
-        <input type='radio' {...register('Applicants')}/>
+        <input type='radio' {...register('Applicants')} checked/>
         <br/>
         <label htmlFor='Artist group'>Artist group</label>
         <input type='radio' {...register('Applicants')}/>
         <br />
         <br />
         <label htmlFor='Statement'>Artist statement</label><br />
-        <textarea type='text' name='Statement' rows='5' cols='33' value='hello' {...register('Statement')}/>
+        <textarea type='text' name='Statement' rows='5' cols='33' value='hello from local' {...register('Statement')}/>
         <br />
         <br />
         <label htmlFor='Library_Branch'>Choose a branch:</label><br />
