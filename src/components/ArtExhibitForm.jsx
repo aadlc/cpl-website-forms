@@ -1,17 +1,15 @@
 'use client'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import RHFRadioGroup from '@components/RHFRadioGroup'
-import RHFTextField from '@components/RHFTextField'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import RHFRadioGroup from '@components/RHFRadioGroup'
+// import RHFTextField from '@components/RHFTextField'
 import RHFUploadField from '@components/RHFUploadField'
-import {requestArtExhibit} from '@utils/actions'
+// import {requestArtExhibit} from '@utils/actions'
 import {
   ACCEPT_FILE_LIST,
-  applicantTypes,
+  // applicantTypes,
   defaultValues,
-  disabeledLocations,
-  schema,
 } from '@forms/art-exhibit-form/formSettings.js'
 import { Button } from '@mui/material'
 import RHFAutocomplete from '@components/RHFAutocomplete'
@@ -22,8 +20,6 @@ export default function ArtExhibitForm({ locations }) {
     control,
     formState: { errors },
     handleSubmit,
-    watch,
-    reset
   } = useForm({
     mode: 'all',
     defaultValues: defaultValues,
@@ -32,12 +28,10 @@ export default function ArtExhibitForm({ locations }) {
   })
   
   const submit = async (data) => {
-    reset()
-    const result = await requestArtExhibit(data)
+    // const result = await requestArtExhibit(data)
+    console.log(data)
   }
-  const attachements = watch('attachements')
-  console.log(attachements)
-  console.log('errors', errors)
+
   return (
     <form onSubmit={handleSubmit(submit)} noValidate autoComplete='off'>
       {/* <RHFTextField
