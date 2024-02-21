@@ -1,4 +1,4 @@
-import Form from '@components/formDebugging'
+import Form from '@components/ForrmDebugging'
 
 export default async function  ArtExhibitPage() {
 
