@@ -2,9 +2,11 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { requestArtExhibit } from '@utils/actions'
-
+import RHFUploadField from '@components/RHFUploadField'
+import { ACCEPT_FILE_LIST } from '@forms/book-truck-form/formSettings'
 function Form() {
   const {
+    control: control,
     handleSubmit,
     register
   } = useForm({
@@ -13,11 +15,11 @@ function Form() {
   })
 
   const submit = async (data) => {
-    const { attachements, ...FormFields } = data
+    const { attachments, ...FormFields } = data
     const multipartFormdata = new window.FormData()
-    multipartFormdata.append('file1', attachements[0], attachements[0].name)
-    multipartFormdata.append('file2', attachements[1], attachements[1].name)
-    multipartFormdata.append('file3', attachements[2], attachements[2].name)
+    multipartFormdata.append('file1', attachments[0], attachments[0].name)
+    multipartFormdata.append('file2', attachments[1], attachments[1].name)
+    multipartFormdata.append('file3', attachments[2], attachments[2].name)
     multipartFormdata.append('formFields', JSON.stringify(FormFields))
     const result = await requestArtExhibit(multipartFormdata)
   }
@@ -61,8 +63,14 @@ function Form() {
         </select>
         <br/>
         <br />
-        <p>Attachment</p>
-        <input type='file' multiple {...register('attachements')} />
+        <RHFUploadField
+          required
+          fullWidth
+          name='attachments'
+          label='Please include three samples of your work'
+          control={control}
+          accept={ACCEPT_FILE_LIST}
+        />
         <br/>
         <br/>
         <label htmlFor='Additional_Links'>Link to artist social media</label><br />
