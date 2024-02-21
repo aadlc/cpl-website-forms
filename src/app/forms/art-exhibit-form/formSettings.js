@@ -7,7 +7,7 @@ const defaultValues = {
   Applicants:'Solo Artist',
   Artist_Address:'95 Palis Way SW',
   Artist_Name:'Alfonzo Angulo',
-  Email:'aadlc@she.ca',
+  Email:'alfonzo.AngulodelaCruz@calgarylibrary.ca',
   Library_Branch:null,
   Phone:'4034559178',
   Statement:'Hello World!',

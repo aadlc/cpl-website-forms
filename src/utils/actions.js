@@ -1,15 +1,18 @@
 'use server'
 
+
 export async function makeApiRequest(requestOptions) {
-  
+  let ret
   try {
     const url = requestOptions.url
     const method = requestOptions.method
-    const payload = requestOptions.payload
+    const body = requestOptions.body
     const headers = requestOptions.headers || { 'Content-Type': 'application/json' }
     const redirect = requestOptions.redirect || 'follow'
     const token = requestOptions.token || null
 
+   
+    
     // If a token is provided, add it to the headers
     if (token) {
       headers['Authorization'] = `Bearer ${token}`
@@ -21,19 +24,32 @@ export async function makeApiRequest(requestOptions) {
       redirect: redirect,
     }
   
-    // Add body if method is POST or PUT
-    if (['POST', 'PUT'].includes(method.toUpperCase())) {
-      options.body = JSON.stringify(payload)
+   // Adjust this condition to handle FormData payloads appropriately
+    if (body instanceof FormData)
+    {
+
+     delete headers['Content-Type'] // Let the browser set it
+     options.body = body
     }
+    //  else if (['POST', 'PUT'].includes(method.toUpperCase()))
+    //  {
+      //   options.body = JSON.stringify(payload);
+      // }
+      
+    
 
     const response = await fetch(url, options)
-    const result = await response.text()
-
     // Check if the response was not ok
     if (!response.ok) {
-      // throw new Error(`HTTP error! status: ${response.status}`)
+      const resultError = await response.text()
     }
-    return result
+
+    if (response.ok){
+      ret = await response.text()
+      
+    }
+
+    return ret
   } catch (error) {
     console.error('Error during the fetch operation:', error)
     throw error
@@ -73,12 +89,12 @@ export async function getToken() {
 
 // Form actions
 
-export async function reaquestArtExhibit(payload) {
-  
+export async function requestArtExhibit(payload) {
+
   const requestSettings = {
-    method: 'GET',
     url: process.env.ART_EXHIBIT_LOGICAPP_URL,
-    payload: payload
+    method: 'POST',
+    body: payload,
   }
 
   const ret = await makeApiRequest(requestSettings)

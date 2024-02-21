@@ -1,11 +1,10 @@
-import React from 'react'
+import From from '@components/formDebugging'
 
-const HelloWorld = () => {
+export default async function  ArtExhibitPage() {
+
   return (
-    <div>
-      <p>Hello world</p>
-    </div>
+    <>
+      <From />
+    </>
   )
 }
-
-export default HelloWorld

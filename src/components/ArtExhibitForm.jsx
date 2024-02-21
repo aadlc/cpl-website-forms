@@ -22,20 +22,25 @@ export default function ArtExhibitForm({ locations }) {
     control,
     formState: { errors },
     handleSubmit,
+    watch,
+    reset
   } = useForm({
     mode: 'all',
     defaultValues: defaultValues,
     shouldUnregister: true,
-    resolver: yupResolver(schema)
+    // resolver: yupResolver(schema)
   })
   
   const submit = async (data) => {
+    reset()
     const result = await reaquestArtExhibit(data)
   }
-  
+  const attachements = watch('attachements')
+  console.log(attachements)
+  console.log('errors', errors)
   return (
     <form onSubmit={handleSubmit(submit)} noValidate autoComplete='off'>
-      <RHFTextField
+      {/* <RHFTextField
         required
         fullWidth
         name='Artist_Name'
@@ -105,8 +110,8 @@ export default function ArtExhibitForm({ locations }) {
         optionValueKey='branchCode'
         error={!!errors.Library_Branch}
         helperText={errors?.Library_Branch?.message}
-      />
-      {/* <RHFUploadField
+      /> */}
+      <RHFUploadField
         required
         fullWidth
         name='attachements'
@@ -115,15 +120,15 @@ export default function ArtExhibitForm({ locations }) {
         error={!!errors.attachements}
         helperText={errors?.attachements?.message}
         accept={ACCEPT_FILE_LIST}
-      /> */}
-      <RHFTextField
+      />
+      {/* <RHFTextField
         fullWidth
         name='Additional_Links'
         label='Link to Artist social media channels'
         control={control}
         error={!!errors.Additional_Links}
         helperText={errors?.Additional_Links?.message}
-      />
+      /> */}
       <Button
         color='secondary'
         label='Submit'
